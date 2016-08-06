@@ -1,0 +1,30 @@
+{
+  "name": "gulp-html-bower",
+  "description": "Parse HTML file and copy bower files to your public directory",
+  "authors": [
+    "Sébastien Demanou"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulpfriendly",
+    "gulpplugin",
+    "bower",
+    "gulp",
+    "html",
+    "move",
+    "vendor"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.7"
+  }
+}

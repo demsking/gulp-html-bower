@@ -1,0 +1,39 @@
+{
+  "name": "gulp-html-bower",
+  "version": "1.0.0",
+  "description": "Parse HTML file and copy bower files to your public directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/tests.js",
+    "coverage": "istanbul cover _mocha -- tests/tests.js -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demsking/gulp-html-bower.git"
+  },
+  "keywords": [
+    "gulpfriendly",
+    "gulpplugin",
+    "bower",
+    "gulp",
+    "html",
+    "move",
+    "vendor"
+  ],
+  "author": "Sébastien Demanou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/demsking/gulp-html-bower/issues"
+  },
+  "homepage": "https://github.com/demsking/gulp-html-bower#readme",
+  "dependencies": {
+    "event-stream": "^3.3.4",
+    "gulp-util": "^3.0.7",
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "istanbul": "^0.4.4",
+    "mocha": "^2.5.3"
+  }
+}
