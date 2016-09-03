@@ -22,25 +22,27 @@ const REGEX = /(href|src)=("|').*(bower_components\/([a-z0-9\.+@~$!;:\/{}()\[\]|
 
 module.exports = (options) => {
     options = options || {};
-    options.dest = options.dest || process.cwd();
-    options.base = options.base || '/';
+    
+    options.prefix = options.prefix || '/';
+    options.basedir = options.basedir || path.dirname(file.path);
+    options.basedir = path.join(options.basedir, options.prefix);
     
     return es.map((file, done) => {
         file.contents = new Buffer(file.contents.toString().replace(REGEX, (match, prefix, quote, pathname, filename) => {
-            mkdirp(path.dirname(path.join(options.dest, filename)), (err) => {
+            mkdirp(path.dirname(path.join(options.basedir, filename)), (err) => {
                 if (err) {
                     return done(new gutil.PluginError(PLUGIN_NAME, err));
                 }
                 
                 try {
                     fs.createReadStream(path.join(pathname))
-                        .pipe(fs.createWriteStream(path.join(options.dest, filename)));
+                        .pipe(fs.createWriteStream(path.join(options.basedir, filename)));
                 } catch(e) {
                     return done(new gutil.PluginError(PLUGIN_NAME, err));
                 }
             });
             
-            return prefix + '=' + quote + path.join(options.base, filename) + quote;
+            return prefix + '=' + quote + path.join(options.prefix, filename) + quote;
         }));
         
         done(null, file);
