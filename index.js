@@ -18,7 +18,7 @@ var es = require('event-stream')
   , fs = require('fs');
 
 const PLUGIN_NAME = 'gulp-html-bower';
-const REGEX = /(href|src)=("|').*(bower_components\/([a-z0-9\.+@~$!;:\/{}()\[\]|=&<>*£%§-]+\.[\w\d]+))("|')/gi;
+const REGEX = /(href|src)=("|').*(bower_components\/([a-z0-9\.+@~$!;:\/{}()\[\]|=&*£%§-]+\.[\w\d]+))("|')/gi;
 
 module.exports = (options) => {
     options = options || {};
