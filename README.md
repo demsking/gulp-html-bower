@@ -32,13 +32,15 @@ In your `gulpfile.js`, add the task:
 var gulp = require('gulp')
   , htmlBower = require('gulp-html-bower');
 
+var path_dest = 'dest';
+
 gulp.task('bower', function() {
     gulp.src('test/src/index.html')
         .pipe(htmlBower({
-            base: '/vendor',    // Bower base URL
-            dest: 'dest/vendor' // Path to copied bower files
+            basedir: path_dest  // The basedir of your application. default: the current file directory
+            prefix: '/vendor',  // The URL prefix. Default "/"
         }))
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest(path_dest));
 });
 
 // Gulp Default Task
