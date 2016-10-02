@@ -32,10 +32,10 @@ In your `gulpfile.js`, add the task:
 var gulp = require('gulp')
   , htmlBower = require('gulp-html-bower');
 
-var path_dest = 'dest';
+var path_dest = 'dist';
 
 gulp.task('bower', function() {
-    gulp.src('test/src/index.html')
+    return gulp.src('src/index.html')
         .pipe(htmlBower({
             basedir: path_dest  // The basedir of your application. default: the current file directory
             prefix: '/vendor',  // The URL prefix. Default "/"
